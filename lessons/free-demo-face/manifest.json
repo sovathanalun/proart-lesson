@@ -1,0 +1,81 @@
+{
+  "formatVersion": 1,
+  "id": "free-demo-face",
+  "title": {
+    "en": "Free Demo Face",
+    "km": "មុខគំរូឥតគិតថ្លៃ",
+    "zh-Hans": "免费示例笑脸",
+    "es": "Cara de demostración gratis"
+  },
+  "category": "characters",
+  "level": "easy",
+  "tags": [
+    "face",
+    "smile",
+    "sample"
+  ],
+  "author": "ProArt",
+  "imageSize": {
+    "width": 2048,
+    "height": 2048
+  },
+  "steps": [
+    {
+      "image": "steps/step_1.png",
+      "role": "construction",
+      "title": {
+        "en": "Draw a big circle"
+      },
+      "hint": {
+        "en": "Draw one large circle for the head, then add a centre line and an eye line."
+      }
+    },
+    {
+      "image": "steps/step_2.png",
+      "role": "construction",
+      "title": {
+        "en": "Mark the eyes and smile"
+      },
+      "hint": {
+        "en": "Place two tall ovals on the eye line and sketch a curved smile below."
+      }
+    },
+    {
+      "image": "steps/step_3.png",
+      "role": "ink",
+      "title": {
+        "en": "Ink the main lines"
+      },
+      "hint": {
+        "en": "Trace the head, eyes and smile with confident lines."
+      }
+    },
+    {
+      "image": "steps/step_4.png",
+      "role": "ink",
+      "title": {
+        "en": "Add eyebrows and cheeks"
+      },
+      "hint": {
+        "en": "Finish with two eyebrows and a rosy oval on each cheek."
+      }
+    }
+  ],
+  "lineArt": "lineart.png",
+  "colorReference": "color.png",
+  "thumbnail": "thumbnail.png",
+  "colorHint": {
+    "en": "Warm yellow face, dark eyes, soft pink cheeks."
+  },
+  "palette": [
+    "#FFD23F",
+    "#3B2A20",
+    "#FF9AA2",
+    "#F6AD55",
+    "#FFFFFF"
+  ],
+  "store": {
+    "free": true
+  },
+  "version": 1
+}
