@@ -4,6 +4,7 @@
 Source
   lessons/<id>/…   FREE lessons, unzipped (manifest.json at its root; "store": {"free": true})
   paid-entries/<id>.json + .png   PAID listings only (no artwork), published by the private repo
+  paid-entries/<id>.bundle.json   PAID bundles of those lessons, published by the private repo
 
 Outputs (dist/public/, published with GitHub Pages)
   catalog.json, thumbs/<id>.png, packages/<id>-v<N>.zip
@@ -80,8 +81,9 @@ def main():
     # Paid listings (no artwork) published here by the private repo's publish_entries.sh.
     entries = os.path.join(ROOT, "paid-entries")
     free_ids = {l["id"] for l in lessons}
-    for name in sorted(os.listdir(entries)) if os.path.isdir(entries) else []:
-        if not name.endswith(".json"):
+    names = sorted(os.listdir(entries)) if os.path.isdir(entries) else []
+    for name in names:
+        if not name.endswith(".json") or name.endswith(".bundle.json"):
             continue
         e = json.load(open(os.path.join(entries, name), encoding="utf-8"))
         lid = e.get("id")
@@ -95,19 +97,30 @@ def main():
         shutil.copy(thumb, os.path.join(DIST, "public/thumbs", os.path.basename(thumb)))
         lessons.append(e)
 
+    # Bundles (<id>.bundle.json): one purchase that unlocks several paid lessons listed above.
+    bundles, paid_ids = [], {l["id"] for l in lessons if not l["free"]}
+    for name in names:
+        if not name.endswith(".bundle.json"):
+            continue
+        b = json.load(open(os.path.join(entries, name), encoding="utf-8"))
+        missing = [i for i in b.get("lessonIDs") or [] if i not in paid_ids]
+        if not b.get("id") or not b.get("productID") or not (b.get("title") or {}).get("en") or len(b.get("lessonIDs") or []) < 2 or missing:
+            problems.append(f"paid-entries/{name}: a bundle needs id, productID, title.en and 2+ paid lessons; not found: {missing}"); continue
+        bundles.append({k: b[k] for k in ("id", "productID", "title", "lessonIDs")})
+
     if problems:
         print("\nBUILD FAILED:")
         for p in problems: print("  -", p)
         return 1
 
     catalog = {"schema": 1, "updated": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-               "lessons": lessons, "bundles": []}
+               "lessons": lessons, "bundles": bundles}
     json.dump(catalog, open(os.path.join(DIST, "public/catalog.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     # Privacy policy and support pages the App Store listing links to.
     site = os.path.join(ROOT, "site")
     if os.path.isdir(site):
         shutil.copytree(site, os.path.join(DIST, "public"), dirs_exist_ok=True)
-    print(f"OK: {len(free_ids)} free + {len(lessons) - len(free_ids)} paid lesson(s) -> dist/public")
+    print(f"OK: {len(free_ids)} free + {len(lessons) - len(free_ids)} paid lesson(s), {len(bundles)} bundle(s) -> dist/public")
     return 0
 
 
