@@ -1,0 +1,23 @@
+{
+  "id": "siamese-kitten-001",
+  "version": 1,
+  "title": {
+    "en": "Siamese Kitten"
+  },
+  "category": "animals",
+  "level": "medium",
+  "tags": [
+    "cat",
+    "kitten",
+    "siamese",
+    "anime",
+    "cute"
+  ],
+  "free": false,
+  "productID": "com.sovathana.proart.lesson.siamese_kitten_001",
+  "thumbnail": "thumbs/siamese-kitten-001.png",
+  "assetPackID": "lesson_siamese_kitten_001",
+  "package": null,
+  "sha256": null,
+  "bytes": 1619035
+}
