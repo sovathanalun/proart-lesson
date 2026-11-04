@@ -1,0 +1,98 @@
+{
+  "formatVersion": 1,
+  "id": "dancing-cat-001",
+  "title": {
+    "en": "Dancing Cat"
+  },
+  "category": "animals",
+  "level": "medium",
+  "tags": [
+    "cat",
+    "dancing",
+    "ballet",
+    "cute",
+    "cartoon"
+  ],
+  "author": "ProArt",
+  "imageSize": {
+    "width": 2048,
+    "height": 1844
+  },
+  "steps": [
+    {
+      "image": "steps/step_1.png",
+      "role": "construction",
+      "title": {
+        "en": "Block in the big shapes"
+      },
+      "hint": {
+        "en": "Draw an oval for the head, a box for the body and a wide oval for the skirt. Add two slanted lines for the legs."
+      }
+    },
+    {
+      "image": "steps/step_2.png",
+      "role": "construction",
+      "title": {
+        "en": "Place arms, ears and face"
+      },
+      "hint": {
+        "en": "Sketch the two raised arms with a circle for each paw, a small curve for the tail and a triangle for each ear. Add a centre line and eye line on the head."
+      }
+    },
+    {
+      "image": "steps/step_3.png",
+      "role": "ink",
+      "title": {
+        "en": "Ink the head and ears"
+      },
+      "hint": {
+        "en": "Trace the rounded head and the two pointed ears, then add the small mark inside each ear."
+      }
+    },
+    {
+      "image": "steps/step_4.png",
+      "role": "ink",
+      "title": {
+        "en": "Ink the face"
+      },
+      "hint": {
+        "en": "Draw the closed happy eyes, tiny nose, smiling mouth and three whiskers on each side."
+      }
+    },
+    {
+      "image": "steps/step_5.png",
+      "role": "ink",
+      "title": {
+        "en": "Ink the arms, body and legs"
+      },
+      "hint": {
+        "en": "Outline the raised arms with their paw marks, the body, the tail and the two legs with little toe lines."
+      }
+    },
+    {
+      "image": "steps/step_6.png",
+      "role": "ink",
+      "title": {
+        "en": "Ink the skirt and music"
+      },
+      "hint": {
+        "en": "Draw the wavy puffy skirt over the waist, then add the two music notes floating beside the cat."
+      }
+    }
+  ],
+  "lineArt": "lineart.png",
+  "colorReference": "color.png",
+  "thumbnail": "thumbnail.png",
+  "colorHint": {
+    "en": "White cat with soft pink cheeks, a pink skirt with white polka dots and a light green background."
+  },
+  "palette": [
+    "#FFFFFF",
+    "#F7A8B4",
+    "#F3DBD6",
+    "#1A1A1A"
+  ],
+  "store": {
+    "free": true
+  }
+}
