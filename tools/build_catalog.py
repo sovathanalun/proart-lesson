@@ -84,6 +84,10 @@ def main():
     catalog = {"schema": 1, "updated": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
                "lessons": lessons, "bundles": []}
     json.dump(catalog, open(os.path.join(DIST, "public/catalog.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    # Privacy policy and support pages the App Store listing links to.
+    site = os.path.join(ROOT, "site")
+    if os.path.isdir(site):
+        shutil.copytree(site, os.path.join(DIST, "public"), dirs_exist_ok=True)
     print(f"OK: {len(lessons)} free lesson(s) -> dist/public")
     return 0
 

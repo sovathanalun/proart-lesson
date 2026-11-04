@@ -1,0 +1,32 @@
+/* ProArt's look: warm paper, ink-black text and one red accent. */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap");
+
+:root {
+  --bg: #f6f2ea;
+  --card: #ede6d9;
+  --ink: #16120e;
+  --muted: #6d655b;
+  --accent: #e5332a;
+  --line: #e2d9ca;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #16120e; --card: #231e18; --ink: #f6f2ea; --muted: #b3aa9d; --line: #332c24; }
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 "Outfit", -apple-system, system-ui, sans-serif; }
+main { max-width: 720px; margin: 0 auto; padding: 56px 16px 72px; }
+.eyebrow { display: inline-block; margin: 0 0 12px; padding: 4px 12px; border-radius: 999px; background: var(--accent); color: #fff; font-size: 13px; font-weight: 600; }
+h1 { margin: 0; font-size: clamp(40px, 9vw, 60px); line-height: 1.05; letter-spacing: -0.02em; }
+h1 em { font-style: normal; color: var(--accent); }
+h2 { margin: 40px 0 8px; font-size: 22px; }
+.meta { margin: 8px 0 0; color: var(--muted); font-size: 14px; }
+.lead { margin: 24px 0 0; font-size: 19px; }
+a { color: var(--accent); }
+code { font-size: 0.9em; }
+ul { padding-left: 20px; }
+li { margin: 6px 0; }
+details { margin: 10px 0; padding: 14px 18px; border-radius: 16px; background: var(--card); }
+summary { cursor: pointer; font-weight: 600; }
+details p { margin: 10px 0 0; color: var(--muted); }
+footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
