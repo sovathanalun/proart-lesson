@@ -3,10 +3,11 @@
 
 Source
   lessons/<id>/…   FREE lessons, unzipped (manifest.json at its root; "store": {"free": true})
+  paid-entries/<id>.json + .png   PAID listings only (no artwork), published by the private repo
 
 Outputs (dist/public/, published with GitHub Pages)
   catalog.json, thumbs/<id>.png, packages/<id>-v<N>.zip
-Paid lessons are intentionally not handled here: the build fails if a lesson is marked paid.
+Paid lesson artwork never goes in lessons/: the build fails if a lesson there is marked paid.
 """
 import datetime, hashlib, json, os, shutil, sys, zipfile
 sys.path.insert(0, os.path.dirname(__file__))
@@ -76,6 +77,24 @@ def main():
                         "tags": m.get("tags", []), "free": True, "productID": None, "thumbnail": f"thumbs/{lid}{ext}",
                         "assetPackID": None, "package": f"packages/{zname}", "sha256": sha256(zdest), "bytes": os.path.getsize(zdest)})
 
+    # Paid listings (no artwork) published here by the private repo's publish_entries.sh.
+    entries = os.path.join(ROOT, "paid-entries")
+    free_ids = {l["id"] for l in lessons}
+    for name in sorted(os.listdir(entries)) if os.path.isdir(entries) else []:
+        if not name.endswith(".json"):
+            continue
+        e = json.load(open(os.path.join(entries, name), encoding="utf-8"))
+        lid = e.get("id")
+        if lid in free_ids:
+            problems.append(f"paid-entries/{name}: '{lid}' is also a free lesson"); continue
+        if e.get("free") or not e.get("productID") or not e.get("assetPackID"):
+            problems.append(f"paid-entries/{name}: a paid listing needs free=false, productID and assetPackID"); continue
+        thumb = os.path.join(entries, os.path.basename(e.get("thumbnail") or ""))
+        if not os.path.isfile(thumb):
+            problems.append(f"paid-entries/{name}: thumbnail {e.get('thumbnail')} missing"); continue
+        shutil.copy(thumb, os.path.join(DIST, "public/thumbs", os.path.basename(thumb)))
+        lessons.append(e)
+
     if problems:
         print("\nBUILD FAILED:")
         for p in problems: print("  -", p)
@@ -88,7 +107,7 @@ def main():
     site = os.path.join(ROOT, "site")
     if os.path.isdir(site):
         shutil.copytree(site, os.path.join(DIST, "public"), dirs_exist_ok=True)
-    print(f"OK: {len(lessons)} free lesson(s) -> dist/public")
+    print(f"OK: {len(free_ids)} free + {len(lessons) - len(free_ids)} paid lesson(s) -> dist/public")
     return 0
 
 
