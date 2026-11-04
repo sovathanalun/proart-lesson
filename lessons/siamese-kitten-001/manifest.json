@@ -1,0 +1,101 @@
+{
+  "formatVersion": 1,
+  "id": "siamese-kitten-001",
+  "title": {
+    "en": "Siamese Kitten"
+  },
+  "category": "animals",
+  "level": "medium",
+  "tags": [
+    "cat",
+    "kitten",
+    "siamese",
+    "anime",
+    "cute"
+  ],
+  "author": "ProArt",
+  "imageSize": {
+    "width": 1672,
+    "height": 2048
+  },
+  "steps": [
+    {
+      "image": "steps/step_1.png",
+      "role": "construction",
+      "title": {
+        "en": "Block in the head and body"
+      },
+      "hint": {
+        "en": "Draw a circle for the head and a big oval for the body. Add a curved line for the tail and ovals for the back leg, plus small ovals for the paws."
+      }
+    },
+    {
+      "image": "steps/step_2.png",
+      "role": "construction",
+      "title": {
+        "en": "Place the face and ears"
+      },
+      "hint": {
+        "en": "Add a curved centre line and a slanted eye line across the head. Mark two circles for the eyes, an oval for the muzzle, and a triangle for each ear."
+      }
+    },
+    {
+      "image": "steps/step_3.png",
+      "role": "ink",
+      "title": {
+        "en": "Ink the head and ears"
+      },
+      "hint": {
+        "en": "Trace the outline of the head with its fluffy cheek fur, then the two pointed ears with their inner shapes."
+      }
+    },
+    {
+      "image": "steps/step_4.png",
+      "role": "ink",
+      "title": {
+        "en": "Ink the face"
+      },
+      "hint": {
+        "en": "Draw the big round eyes with pupils, the little nose and mouth, the dark muzzle shape and the whiskers."
+      }
+    },
+    {
+      "image": "steps/step_5.png",
+      "role": "ink",
+      "title": {
+        "en": "Ink the chest and body"
+      },
+      "hint": {
+        "en": "Follow the neck and chest down the side of the body, then add a few short fur strokes on the tummy."
+      }
+    },
+    {
+      "image": "steps/step_6.png",
+      "role": "ink",
+      "title": {
+        "en": "Ink the legs, paws and tail"
+      },
+      "hint": {
+        "en": "Finish with the front legs, the round paws and the curled tail, then add small fur marks."
+      }
+    }
+  ],
+  "lineArt": "lineart.png",
+  "colorReference": "color.png",
+  "thumbnail": "thumbnail.png",
+  "colorHint": {
+    "en": "Cream body with dark chocolate-brown face, ears, legs and tail. Soft pale blue eyes."
+  },
+  "palette": [
+    "#F3E3D3",
+    "#E5CEBC",
+    "#C8A592",
+    "#A27D72",
+    "#81635E",
+    "#543D3C",
+    "#1F1C1C"
+  ],
+  "store": {
+    "free": true
+  }
+}
